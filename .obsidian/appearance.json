@@ -1,0 +1,9 @@
+{
+  "cssTheme": "Minimal",
+  "interfaceFontFamily": "Adwaita Mono,DejaVu Sans",
+  "accentColor": "#00fbff",
+  "theme": "obsidian",
+  "enabledCssSnippets": [
+    "test"
+  ]
+}

@@ -1,0 +1,32 @@
+.markdown-rendered h1, 
+.cm-header-1, 
+.HyperMD-header-1 {
+    font-size: 2em !important;
+}
+
+body {
+    --inline-title-size: 2.5em !important;
+}
+
+.metadata-container {
+    background: linear-gradient(
+        to bottom, 
+        color-mix(in srgb, var(--color-accent) 25%, transparent), 
+        transparent
+    ) !important;
+    border-radius: 8px;
+}
+
+/* .callout[data-callout="section"] {
+    background-color: var(--background-secondary-alt) !important;
+    border: 1px solid var(--background-modifier-border) !important;
+    border-left: 5px solid var(--color-accent) !important;
+    border-radius: 8px !important;
+    padding: 12px 16px !important;
+}
+
+.callout[data-callout="section"] .callout-title {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: var(--text-normal);
+} */
