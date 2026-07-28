@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "BPO/homework/introduce yourself assignment.md",
+                "file": "ITS 300/subnotes/CSS Variables.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "introduce yourself assignment"
+              "title": "CSS Variables"
             }
           }
         ]
@@ -94,12 +94,12 @@
               "title": "Notebook Navigator"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 285.5
   },
   "right": {
     "id": "cf0e8e004ff85002",
@@ -217,43 +217,48 @@
   },
   "active": "e694089c9aa1aa85",
   "lastOpenFiles": [
-    "DASHBOARD.md",
     "ITS 300/CSS3 and CSS Frameworks.md",
     "ITS 300/ITS 300 - Web Development 1.md",
+    "ITS 304/homework/The 7 Phases of the Software Development Life Cycle (SDLC).md",
+    "ITS 304/ITS 304 - System Analysis & Design.md",
+    "SERV 100/SERV 100 - Service Culture.md",
+    "GE 11/GE 11 - Gender and Society.md",
+    "ITS 301/ITS 301 - Seminars & Field Trips.md",
+    "CSS Syntax.md",
+    "ITS 300/subnotes/CSS Variables.md",
+    "SERV 100/System Thinking Basics.md",
+    "ITS 300/subnotes/types of selectors.md",
+    "ITS 300/subnotes/Measurement Units.md",
+    "ITS 300/subnotes/CSS Background Properties.md",
+    "ITS 300/subnotes/Pseudo Classes.md",
+    "DASHBOARD.md",
+    "+/assets/Pasted image 20260728091400.png",
+    "+/assets/Anderson-Johnson_SystemsThinkingBasics - First Lesson.pdf",
+    "+/assets/qr-code-202403397.png",
+    "+/assets/Pasted image 20260728073824.png",
+    "+/assets/Pasted image 20260728073744.png",
+    "+/assets/Pasted image 20260728073509.png",
+    "SYS 100/SYS 100 - Principles of Systems Thinking.md",
+    "SERV 100/subnotes/game dev focus.md",
+    "SERV 100/subnotes",
+    "BPO/homework/introduce yourself assignment.md",
+    "ITS 300/subnotes/CSS Transforms.md",
+    "ITS 300/subnotes/CSS Transitions.md",
+    "ITS 300/subnotes/CSS Box Model.md",
+    "+/assets/Pasted image 20260728073623.png",
+    "ITS 303/project/Flipbook Assignment.md",
     "ITS 303/Types of Animation.md",
     "ITS 303/The illusion of motion.md",
     "ITS 303/ITS 303 - Animation.md",
     "ITS 303/12 Principles of Animation.md",
-    "+/Teachers/Ariel Bensing.md",
-    "ID Selector.md",
-    "ITS 300/subnotes/types of selectors.md",
-    "ITS 302/ITS 302 - Data Comm & Networking 2.md",
-    "ITS 301/ITS 301 - Seminars & Field Trips.md",
-    "+/Teachers/Van Roger Gutib.md",
-    "SYS 100/SYS 100 - Principles of Systems Thinking.md",
-    "SERV 100/SERV 100 - Service Culture.md",
-    "+/Teachers/Chester Cofino.md",
-    "ITS 304/ITS 304 - System Analysis & Design.md",
-    "+/Teachers/Jasper Bardo.md",
-    "+/Teachers/Michelle Compe.md",
-    "GE 11/GE 11 - Gender and Society.md",
     "+/Teachers",
-    "Timing.md",
-    "Anticipation.md",
-    "Element Selector.md",
     "ITS 300/subnotes",
-    "ITS 303/project/Flipbook Assignment.md",
-    "BPO/homework/Note taking assignment.md",
-    "GE 11/homework/Collage assignment.md",
     "Untitled.base",
-    "+/assets/qr-code-202403397.png",
     "+/assets",
     "+/daily",
     "+",
     "ITS 303.zip",
     "3rd year",
-    "ITS 303/project",
-    "GE 11/project",
     "watermark.png",
     "Pasted image 20260723081221.png"
   ]

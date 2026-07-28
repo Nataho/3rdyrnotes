@@ -18,48 +18,6 @@ cssclasses:
 >
 
 # [[types of selectors]]
-## [[ID Selector]]
-use the selector whenever you only need one element to be edited by css
-```HTML
----how to create ID---
-<h2 id="about_me"> </h2>
-<h3 id="about_me"> </h3> %% dili pwede kaduha, ID is unique %%
-<h4 id = "this_class"> </h4>
-
-```
-```
-```
-## [[Class Selector]]
-use `<h2 class:"classname">` when you want multiple elements to update when one class is edited
-```CSS
-#about_me: { %% singular %%
-}
-.this_class {
-%% multiple %%
-}
-```
-
-## [[Element Selector]]
-``` CSS
-h2{
-/* uses the tag and automatically sets */
-}
-```
-
-## [[attribute selector]]
-```CSS
-input[type]{
-}
-```
-
-## [[Grouping Selector]]
-can add any other kind of selector
-```CSS
-.this,h1,h2{
-
-}
-```
-
 # Embedding a style
 ## external
 style definitions are defined on an external file
@@ -103,13 +61,13 @@ color:var(--primary-color)
 ```
 
 # [[Measurement Units]]
-ADDME - TABLE
+Are the units of measurements used in css
 
 # [[CSS Box Model]]
-ADDME - download and attach the CSS box model
+a box that wraps around every HTML element
 
 # [[CSS Background Properties]]
-ADDME - table for background properties
+Background properties of elements
 
 # [[CSS Transforms]]
 ADDME - add css transforms table

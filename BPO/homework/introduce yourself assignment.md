@@ -3,7 +3,7 @@ tags:
   - task
 due_date: 2026-07-27
 Progress:
-  - untouched
+  - to be turned in
 cssclasses:
   - wide
 ---

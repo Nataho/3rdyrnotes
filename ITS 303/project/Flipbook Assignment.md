@@ -3,7 +3,7 @@ tags:
   - task
 due_date: 2026-07-28
 Progress:
-  - untouched
+  - to be turned in
 ---
 
 1. use a sticky note as a flipbook

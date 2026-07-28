@@ -14,7 +14,7 @@ cssclasses:
 
 > [!info] Instructions
 > 1. **Read the Discussion:** Read the discussion about the Software Development Life Cycle (SDLC) before answering the activity.
->    - **Reference:** [IBM Think – What is the Software Development Life Cycle (SDLC)?](https://www.ibm.com/think/topics/software-development-life-cycle)
+>    - **Reference:** [IBM Think – What is the Software Development Life Cycle (SDLC)?]([https://www.ibm.com/think/topics/software-development-life-cycle](https://www.ibm.com/think/topics/sdlc/jcr%3Acontent))
 > 2. **Complete All Parts:** Complete Parts I to III of this activity.
 > 3. **Independent Work:** Answer all questions independently using your own understanding.
 > 4. **Clarity:** Write your answers clearly and completely.
@@ -38,7 +38,7 @@ cssclasses:
    **Answer:** `Design Phase`
 
 4. Develops the actual software using programming languages.  
-   **Answer:** `Coding Phase`
+   **Answer:** `Coding Phase / development phase`
 
 5. Ensures the software meets quality standards through testing.  
    **Answer:** `Testing`

@@ -89,3 +89,5 @@ setTimeout(() => {
 ```dataviewer
 TABLE
 ```
+![[Pasted image 20260728091400.png]]
+
