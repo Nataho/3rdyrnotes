@@ -1,0 +1,10 @@
+{
+  "notebook-navigator:collapse-expand": [
+    {
+      "modifiers": [
+        "Shift"
+      ],
+      "key": "PageUp"
+    }
+  ]
+}

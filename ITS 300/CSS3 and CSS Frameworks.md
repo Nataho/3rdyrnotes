@@ -88,3 +88,21 @@ h2:first_child{
 color:red
 }
 ```
+
+
+# viewport
+
+# media types
+All - All used for all media types devices
+Print - used for printers
+**Screen** - used for computer screens, tablets, smartphones
+Speesh - used for screen readers that "reads" the page out loud
+
+```
+@media [type of media] and (minimum) and (maximum)
+```
+
+``` CSS
+@media screen and (min-width:400px){
+}
+```

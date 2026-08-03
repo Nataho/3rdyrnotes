@@ -8,12 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "e694089c9aa1aa85",
+            "id": "f965f883b6242576",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ITS 300/subnotes/CSS Variables.md",
+                "file": "Role-Based Simulation and Analysis.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,37 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "CSS Variables"
+              "title": "Role-Based Simulation and Analysis"
+            }
+          }
+        ]
+      },
+      {
+        "id": "cbb3cc46175be26b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e694089c9aa1aa85",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Role-Based Simulation and Analysis.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "Role-Based Simulation and Analysis"
             }
           }
         ]
@@ -51,7 +81,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -79,7 +111,10 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {},
+              "state": {
+                "showSearch": false,
+                "searchQuery": ""
+              },
               "icon": "lucide-bookmark",
               "title": "Bookmarks"
             }
@@ -94,8 +129,7 @@
               "title": "Notebook Navigator"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "horizontal",
@@ -217,21 +251,29 @@
   },
   "active": "e694089c9aa1aa85",
   "lastOpenFiles": [
+    "GE 11/GE 11 - Gender and Society.md",
+    "Role-Based Simulation and Analysis.md",
+    "DASHBOARD.md",
+    "ITS 304/ITS 304 - System Analysis & Design.md",
+    "ITS 304/homework/The 7 Phases of the Software Development Life Cycle (SDLC).md",
     "ITS 300/CSS3 and CSS Frameworks.md",
     "ITS 300/ITS 300 - Web Development 1.md",
-    "ITS 304/homework/The 7 Phases of the Software Development Life Cycle (SDLC).md",
-    "ITS 304/ITS 304 - System Analysis & Design.md",
+    "GE 11/Reproductive_Hardware_and_Software.md",
+    "+/assets/Reproductive_Hardware_and_Software.pptx.pdf",
+    "GE 11/Gender and Sexuality Across Time.md",
+    "+/assets/Gender_Decoded.pptx.pdf",
+    "GE 11/The Identity Prism.md",
+    "+/assets/Gender_Decoded.pptx",
+    "+/daily/July 29, 2026 | Wednesday.md",
+    "ITS 300/subnotes/CSS Variables.md",
     "SERV 100/SERV 100 - Service Culture.md",
-    "GE 11/GE 11 - Gender and Society.md",
     "ITS 301/ITS 301 - Seminars & Field Trips.md",
     "CSS Syntax.md",
-    "ITS 300/subnotes/CSS Variables.md",
     "SERV 100/System Thinking Basics.md",
     "ITS 300/subnotes/types of selectors.md",
     "ITS 300/subnotes/Measurement Units.md",
     "ITS 300/subnotes/CSS Background Properties.md",
     "ITS 300/subnotes/Pseudo Classes.md",
-    "DASHBOARD.md",
     "+/assets/Pasted image 20260728091400.png",
     "+/assets/Anderson-Johnson_SystemsThinkingBasics - First Lesson.pdf",
     "+/assets/qr-code-202403397.png",
@@ -246,19 +288,11 @@
     "ITS 300/subnotes/CSS Transitions.md",
     "ITS 300/subnotes/CSS Box Model.md",
     "+/assets/Pasted image 20260728073623.png",
-    "ITS 303/project/Flipbook Assignment.md",
-    "ITS 303/Types of Animation.md",
-    "ITS 303/The illusion of motion.md",
-    "ITS 303/ITS 303 - Animation.md",
-    "ITS 303/12 Principles of Animation.md",
     "+/Teachers",
     "ITS 300/subnotes",
     "Untitled.base",
     "+/assets",
     "+/daily",
-    "+",
-    "ITS 303.zip",
-    "3rd year",
     "watermark.png",
     "Pasted image 20260723081221.png"
   ]
