@@ -1,5 +1,6 @@
 [
   "gdscript-syntax-highlighting",
   "notebook-navigator",
-  "dataview"
+  "dataview",
+  "obsidian-git"
 ]
