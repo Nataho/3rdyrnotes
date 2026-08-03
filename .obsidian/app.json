@@ -1,5 +1,5 @@
 {
   "alwaysUpdateLinks": true,
-  "attachmentFolderPath": "+/assets",
+  "attachmentFolderPath": "atatchments/assets",
   "openBehavior": "file:DASHBOARD.md"
 }

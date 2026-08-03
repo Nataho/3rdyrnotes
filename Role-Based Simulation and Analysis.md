@@ -96,6 +96,7 @@ The Project will be a University Student System
 	> Different groups need different levels of training staff who use the system daily need hands-on sessions, while students and faculty just need simple guides for the features they'll actually use. Skipping this step means people get confused, support teams get overwhelmed, and users may avoid the new system together, even if it works fine technically. That's why training should be planned and budgeted early, not added in at the last minute.
 * 
 * **Budget/timeline constraints:** The project is bound by a fixed allocated money pool and a rigid academic calendar. Any delays or requirements for additional funds will require difficult trade-offs, such as cutting planned features (like a mobile app version) to launch on time.
+	> 
 
 
 # Reflection
