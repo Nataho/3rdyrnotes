@@ -67,7 +67,7 @@ symfony console make:controller HomeController
 previously on [[#Create new controller]] there was a mentioned `/templates/dashboard`. this is where you edit your HTML or PHP.
 
 in your file you will see these lines `{% block body %} {% endblock %}`.
-i don't know what these are called yet but they are used by the `base.html.twig` that we're gonna show later.
+i think they're called **Twig blocks** but i still don't know the deep details yet. anyway they are used by the `base.html.twig` that we're gonna show later.
 inside that block is the HTML that is used for the body and if you look at `/templates/base.html.twig` you will see this
 ```twig
     <body>
@@ -143,7 +143,7 @@ by changing what's inside the `<body>` in the `base.html.twig` we have essential
 though this kinda looks intimidating. but when we use partial templates later. this script will look less intimidating.
 
 # How to make and use `Partial Templates`
-Partial templates are templates that don't have controllers. there are basically small components you can add to an exsisting `.twig` file.
+Partial templates are templates that don't have controllers. there are basically small components you can add to an existing `.twig` file.
 
 in the previous example on [[#How to Reuse Elements]], the side bar took too much space on the body. let's change that by making `Partial Templates`
 > [!tip] Example Scenario
@@ -152,7 +152,7 @@ in the previous example on [[#How to Reuse Elements]], the side bar took too muc
 > 
 > in `/templates/partials/`, dev creates a file to store the side bar. which will be named `sidebar.html.twig`
 > 
-> inside `/templates/partials/sidebar.html/twig`
+> in `/templates/partials/sidebar.html.twig`
 > dev will write the following
 > ```twig
 > <aside class="sidebar">
