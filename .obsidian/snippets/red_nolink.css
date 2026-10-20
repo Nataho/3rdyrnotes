@@ -1,0 +1,4 @@
+body {
+  --link-unresolved-color: #f5437b !important;
+  --link-unresolved-opacity: 1;
+}

@@ -3,7 +3,7 @@ tags:
   - task
 due_date: 2026-08-15
 Progress:
-  - untouched
+  - finished
 cssclasses:
   - wide
 ---
@@ -16,10 +16,10 @@ in here just paste the Final brand design
 These guidelines exist to ensure the integrity of the brand for Estrera Botanicals. Through applying these guidelines, we can ensure Estrera Botanicals always deliver a consistent look across all platforms and mediums.
 
 ## 3rd Page (Mission)
-Null
+==Null==
 
 ## 4th Page (Vision)
-Null
+==Null==
 
 ## 5th Page (BRANDING MARK)
 Brandiing Mark
@@ -47,12 +47,14 @@ To maintain consistency while offering greater flexibility, use the secondary co
 Typography
 
 ## 12th Page (Heading Typeface)
+**Anglecia Pro Display**
 This typeface should be used for headings, and can be used in all digital and print collaterals. As of the completion of these guidelines, the typeface is available through Google Fonts.
 
 *Font Name*
 Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz
 
 ## 13th Page (Body Copy Typeface)
+**Inter**
 This typeface should be used for headings, and can be used in all digital and print collaterals. As of the completion of these guidelines, the typeface is available through Google Fonts.
 
 *Font Name*
@@ -62,6 +64,9 @@ Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz
 Excluded
 
 # Links
+
+## Reference Website
+https://truebotanicals.com/
 
 ## assignment link
 https://classroom.google.com/u/3/c/ODcwNDM3NTY5NjU3/a/ODU1NjE1MzA5MjQ1/details

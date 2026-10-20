@@ -12,6 +12,7 @@ in this subject we learn about gender and the society and how they blablabla
 
 # Assignments
 [[Collage assignment]]
+[[wow]]
 
 # Projects
 [[Generational Audit (Interview)]]

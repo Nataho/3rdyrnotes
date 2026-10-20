@@ -1,19 +1,33 @@
 {
   "main": {
-    "id": "2b2f7ab6aeb6caa3",
+    "id": "721feaeb1df2f68a",
     "type": "split",
     "children": [
       {
-        "id": "e55b288449d79462",
+        "id": "60426cb39518fbd4",
         "type": "tabs",
         "children": [
           {
-            "id": "f965f883b6242576",
+            "id": "e0d26b3e3e3e90dc",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Role-Based Simulation and Analysis.md",
+                "file": "WebDev Symfony.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "WebDev Symfony"
+            }
+          },
+          {
+            "id": "e7f1fb46c093084d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "ITS 300/Midterm Website.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,54 +42,25 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Role-Based Simulation and Analysis"
+              "title": "Midterm Website"
             }
           }
-        ]
-      },
-      {
-        "id": "cbb3cc46175be26b",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "e694089c9aa1aa85",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Role-Based Simulation and Analysis.md",
-                "mode": "source",
-                "source": true,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "Role-Based Simulation and Analysis"
-            }
-          }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
   },
   "left": {
-    "id": "a75257a4733edbd0",
+    "id": "a0d2b2ed6ae9145d",
     "type": "split",
     "children": [
       {
-        "id": "ba6e95a9f43d95a1",
+        "id": "5016e130fe0009c2",
         "type": "tabs",
         "children": [
           {
-            "id": "d2b4e37d8c565f3d",
+            "id": "ef3898514dbe633e",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -90,12 +75,12 @@
             }
           },
           {
-            "id": "c6dd631aafea06bf",
+            "id": "370fcce0f3440064",
             "type": "leaf",
             "state": {
               "type": "search",
               "state": {
-                "query": "path:\"ITS 303/\" ",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -107,7 +92,7 @@
             }
           },
           {
-            "id": "9c1f418000d4c252",
+            "id": "903aa27dca340b04",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -118,38 +103,28 @@
               "icon": "lucide-bookmark",
               "title": "Bookmarks"
             }
-          },
-          {
-            "id": "f3fffc8dea09027e",
-            "type": "leaf",
-            "state": {
-              "type": "notebook-navigator",
-              "state": {},
-              "icon": "notebook-navigator",
-              "title": "Notebook Navigator"
-            }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 285.5
+    "width": 300
   },
   "right": {
-    "id": "cf0e8e004ff85002",
+    "id": "bb50d92d5ec8a195",
     "type": "split",
     "children": [
       {
-        "id": "e34f4c313da84846",
+        "id": "13fbb7fca9a3fd2d",
         "type": "tabs",
         "children": [
           {
-            "id": "664b0d79c63937b9",
+            "id": "2d34ee966f83cdd8",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "July 24, 2026 | Friday.md",
+                "file": "WebDev Symfony.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -159,25 +134,25 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for July 24, 2026 | Friday"
+              "title": "Backlinks"
             }
           },
           {
-            "id": "2486b6ffc249392c",
+            "id": "80117e2faa2a9e80",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Assignments.md",
+                "file": "WebDev Symfony.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Assignments"
+              "title": "Outgoing links"
             }
           },
           {
-            "id": "d538352981387bc4",
+            "id": "7e3c01c2962fb2d0",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -192,7 +167,7 @@
             }
           },
           {
-            "id": "3a9a0c696d1b7936",
+            "id": "f0649c873d66fac5",
             "type": "leaf",
             "state": {
               "type": "all-properties",
@@ -206,105 +181,68 @@
             }
           },
           {
-            "id": "fd6b46475bba2724",
+            "id": "37e54f101463bca3",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "Assignments.md",
+                "file": "WebDev Symfony.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Assignments"
-            }
-          },
-          {
-            "id": "ff4cdc68c67e8426",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
-            }
-          },
-          {
-            "id": "4c6448514255d4d8",
-            "type": "leaf",
-            "state": {
-              "type": "git-view",
-              "state": {},
-              "icon": "git-pull-request",
-              "title": "Source Control"
+              "title": "Outline"
             }
           }
-        ],
-        "currentTab": 6
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
-      "graph:Open graph view": false,
       "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
       "bases:Create new base": false,
       "notebook-navigator:Notebook Navigator": false,
-      "obsidian-git:Open Git source control": false
+      "webpage-html-export:Export as HTML": false
     }
   },
-  "active": "d2b4e37d8c565f3d",
+  "active": "e7f1fb46c093084d",
   "lastOpenFiles": [
-    "GE 11/GE 11 - Gender and Society.md",
-    "Role-Based Simulation and Analysis.md",
-    "DASHBOARD.md",
-    "ITS 304/ITS 304 - System Analysis & Design.md",
-    "ITS 304/homework/The 7 Phases of the Software Development Life Cycle (SDLC).md",
-    "ITS 300/CSS3 and CSS Frameworks.md",
-    "ITS 300/ITS 300 - Web Development 1.md",
-    "GE 11/Reproductive_Hardware_and_Software.md",
-    "atatchments/assets/Reproductive_Hardware_and_Software.pptx.pdf",
-    "GE 11/Gender and Sexuality Across Time.md",
-    "atatchments/assets/Gender_Decoded.pptx.pdf",
-    "GE 11/The Identity Prism.md",
-    "atatchments/assets/Gender_Decoded.pptx",
-    "atatchments/daily/July 29, 2026 | Wednesday.md",
-    "ITS 300/subnotes/CSS Variables.md",
-    "SERV 100/SERV 100 - Service Culture.md",
+    "ITS 300/subnotes/Docker.md",
     "ITS 301/ITS 301 - Seminars & Field Trips.md",
-    "CSS Syntax.md",
-    "SERV 100/System Thinking Basics.md",
-    "ITS 300/subnotes/types of selectors.md",
-    "ITS 300/subnotes/Measurement Units.md",
-    "ITS 300/subnotes/CSS Background Properties.md",
-    "ITS 300/subnotes/Pseudo Classes.md",
-    "atatchments/assets/Pasted image 20260728091400.png",
-    "atatchments/assets/Anderson-Johnson_SystemsThinkingBasics - First Lesson.pdf",
-    "atatchments/assets/qr-code-202403397.png",
-    "atatchments/assets/Pasted image 20260728073824.png",
-    "atatchments/assets/Pasted image 20260728073744.png",
-    "atatchments/assets/Pasted image 20260728073509.png",
-    "SYS 100/SYS 100 - Principles of Systems Thinking.md",
-    "SERV 100/subnotes/game dev focus.md",
-    "SERV 100/subnotes",
+    "3rd year/1st semester.md",
+    "ITS 303/Types of Animation.md",
+    "atatchments/daily/daily template.md",
+    "atatchments/daily/July 24, 2026 _ Friday.md",
+    "ITS 303/The illusion of motion.md",
+    "GE 11/project/Generational Audit (Interview).md",
+    "GE 11/homework/Collage assignment.md",
+    "BPO/homework/Note taking assignment.md",
+    "ITS 303/12 Principles of Animation.md",
+    "atatchments/Teachers/Michelle Compe.md",
+    "atatchments/Teachers/Ariel Bensing.md",
+    "atatchments/Teachers/Van Roger Gutib.md",
+    "atatchments/Teachers/Jasper Bardo.md",
+    "atatchments/Teachers/Chester Cofino.md",
+    "ITS 303/project/Flipbook Assignment.md",
     "BPO/homework/introduce yourself assignment.md",
-    "ITS 300/subnotes/CSS Transforms.md",
-    "ITS 300/subnotes/CSS Transitions.md",
+    "ITS 300/subnotes/Measurement Units.md",
     "ITS 300/subnotes/CSS Box Model.md",
-    "atatchments/assets/Pasted image 20260728073623.png",
-    "atatchments/Teachers",
-    "ITS 300/subnotes",
-    "Untitled.base",
-    "atatchments/assets",
-    "atatchments/daily",
-    "watermark.png",
-    "Pasted image 20260723081221.png"
+    "ITS 300/subnotes/CSS Background Properties.md",
+    "ITS 300/subnotes/CSS Transitions.md",
+    "ITS 300/subnotes/CSS Transforms.md",
+    "ITS 300/subnotes/Pseudo Classes.md",
+    "SERV 100/SERV 100 - Service Culture.md",
+    "SERV 100/subnotes/game dev focus.md",
+    "ITS 304/projects"
   ]
 }

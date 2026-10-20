@@ -4,6 +4,18 @@
     font-size: 2em !important;
 }
 
+.markdown-rendered h2, 
+.cm-header-2, 
+.HyperMD-header-2 {
+    font-size: 1.5em !important;
+}
+
+.markdown-rendered h3, 
+.cm-header-2, 
+.HyperMD-header-2 {
+    font-size: 1.2em !important;
+}
+
 body {
     --inline-title-size: 2.5em !important;
 }

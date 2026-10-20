@@ -92,7 +92,7 @@ color:red
 
 # viewport
 
-# media types
+# [[media types]]
 All - All used for all media types devices
 Print - used for printers
 **Screen** - used for computer screens, tablets, smartphones
@@ -106,3 +106,11 @@ Speesh - used for screen readers that "reads" the page out loud
 @media screen and (min-width:400px){
 }
 ```
+
+
+# [[CSS Frameworks]]
+## Bootstrap 5 (Component first)
+- it gives you pre-built components out of the box
+- used for prototyping and generic websites
+## Tailwind CSS 4.3 (Utility first)
+- used for complex and customizable elements and components.

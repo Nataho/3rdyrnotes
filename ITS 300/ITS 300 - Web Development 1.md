@@ -10,10 +10,20 @@ Teacher: "[[Ariel Bensing]]"
 
 # Notes
 [[CSS3 and CSS Frameworks]]
-[[new web dev lesson]]
+[[Client-Side Scripting]]
+[[php and database]]
+[[Symfony]]
+[[Docker]]
+
+
+
 
 # Projects
 [[Website Mockup]]
+[[Midterm Website]]
+
+# [[Personal Techniques]]
+
 
 # Links
 ## Personal Web hosted server
