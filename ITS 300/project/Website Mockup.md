@@ -22,7 +22,7 @@ These guidelines exist to ensure the integrity of the brand for Estrera Botanica
 ==Null==
 
 ## 5th Page (BRANDING MARK)
-Brandiing Mark
+Branding Mark
 
 ## 6th page (Primary Logo)
 This is the primary logo, the use of this logo is suitable for website banners, horizontal banners, or for headings on A4 documents.

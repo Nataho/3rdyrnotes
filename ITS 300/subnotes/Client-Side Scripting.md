@@ -1,87 +1,31 @@
-How Javascript turns a static page into an interactive one - reading, changing, creating, and removing page content, and responding to what the user does.
-
-1. [[Client-Side Script]]
-2. [[The DOM]]
-3. [[Dom Manipulation]]
-4. [[Events]]
-5. [[Building a modal]]
-6. [[Implementation Steps]]
-
-
-```javascript
-document.getElementByID("main-title");
-document.getElementsByClassName("description").innerHTML = "wow"; only gets one
-document.querySelectorAll(".btn"); gets multiple
-```
-
-# Change Content
-```javascript
-const test_var = document.getElementByid("testing");
-test_var.textContent = "text";
-test_var.innerHTML = <h1>text<\h1>
-```
-
-# Create and remove
-```js
-const li = document.createElement
-```
-
-# Events
-```js
-modal.addEventListener("click", (e) => {
-	if (e.target == myModal){
-	closeModal();
-	}
-});
-modal.addEventListener("keydown", (e) => {
-	if (e.key == "escape"){
-	closeModal();
-	}
-});
-```
-
-
 ---
-# Client-Side Scripting: DOM Manipulation & Events
-
-> **Course:** Web Development 1 (IT 3rd Year)  
-> **Topic:** Client-Side Scripting, DOM Manipulation, and Event Handling in JavaScript
-
+tags:
+  - notes
+cssclasses:
+  - wide
 ---
 
-## 1. Client-Side Scripting Overview
+JavaScript is what turns a static page into an actually interactive one — reading, changing, creating, and removing page content, and reacting to whatever the user does. and the best part: all of that happens live, in the browser, with zero page reloads.
 
-### What Is Client-Side Scripting?
-Client-side scripting is code—almost always **JavaScript**—that runs inside the user's web browser after the web page has been downloaded, rather than on the web server.
+# Client-Side vs Server-Side
+quick before anything else — "client side" just means it runs in the *user's browser*, not on the server.
 
-It enables interactive web features such as:
-- Validating form inputs before submission
-- Updating page content dynamically
-- Animating elements
-- Responding to user clicks and keystrokes instantly without page reloads
-
-### Client-Side vs. Server-Side
-
-| Feature | Client-Side | Server-Side |
+| | Client-Side | Server-Side |
 | :--- | :--- | :--- |
-| **Runs On** | The user's browser | The web server |
-| **Languages** | JavaScript | PHP, Python, Java, Node.js, C#, etc. |
-| **Triggers** | Page loads, clicks, input, key presses | HTTP requests |
-| **Speed** | Instant, no page reloads | Depends on network latency |
-| **Access** | Only data sent to the browser | Databases, server files, secret keys |
-| **Example Use** | Form validation, DOM updates, UI animations | User login authentication, saving to database |
+| **runs on** | the user's browser | the web server |
+| **language** | JavaScript | PHP (and its friends) |
+| **what triggers it** | clicks, typing, scrolling | HTTP requests |
+| **speed** | instant, no reload | whatever the network gives you |
+| **access** | only what's already in the page | databases, server files, secrets |
+| **typical use** | form validation, UI, animations | login, saving to the database |
 
-### The Three Pillars of Web Development
-- **HTML:** Defines the **Structure** of the web page.
-- **CSS:** Defines the **Presentation** and styling.
-- **JavaScript:** Controls the **Behavior** and interactivity.
+the three pillars, in one line each:
+- **HTML** — the structure
+- **CSS** — the looks
+- **JavaScript** — the behavior
 
----
-
-## 2. The Document Object Model (DOM)
-
-### What Is the DOM?
-The **Document Object Model (DOM)** is the browser's live, in-memory object representation of an HTML document. When a browser loads HTML, it converts every tag into an **object** arranged in a hierarchical tree structure.
+# The DOM
+when the browser loads your HTML, it doesn't keep the file as-is. it turns every single tag into an **object** and arranges them into a tree. that tree is the **DOM** — the Document Object Model. it's a live version of your page that JavaScript can touch, and when you change the DOM, the screen updates instantly.
 
 ```
                   document
@@ -89,191 +33,140 @@ The **Document Object Model (DOM)** is the browser's live, in-memory object repr
                    <html>
                  /        \
             <head>        <body>
-                         /  |  \
-                     <h1>  <p>  <button>
-                      |
-                  "Hello!"
+                          /  |  \
+                      <h1>  <p>  <button>
+                       |
+                   "Hello!"
 ```
 
-### Node Types in the DOM Tree
-- **Document Node:** The root node representing the entire web page (`document`).
-- **Element Nodes:** HTML tags like `<html>`, `<body>`, `<h1>`, `<p>`, `<button>`.
-- **Container Nodes:** Elements containing nested tags.
-- **Text Nodes:** The actual text content inside tags (e.g., `"Hello!"`).
+### the node types
+- **document node** — the root, it IS the whole page (`document`)
+- **element nodes** — the actual tags (`<html>`, `<body>`, `<h1>`, `<p>`, `<button>`)
+- **container nodes** — elements that hold other elements
+- **text nodes** — the text inside the tags (`"Hello!"`)
 
-> [!NOTE] Key Concept
-> **HTML** is what the server sends once. The **DOM** is what the browser maintains and updates live. Modifying the DOM instantly updates what is displayed on the screen.
+> [!note] key idea
+> HTML is what the server sends **once**. the DOM is what the browser keeps updating **live**. modify the DOM and the page changes on the spot.
 
----
+# DOM manipulation
+basically the whole day's lesson in 4 steps: select → change → style → create/remove.
 
-## 3. DOM Manipulation
+## selecting elements
+before JavaScript can do anything to an element, it has to find it first.
 
-### Step 1: Selecting Elements
+| method | what it does | returns |
+| :--- | :--- | :--- |
+| `document.getElementById("idName")` | finds the one element with that ID | single element, or `null` |
+| `document.querySelector(".btn")` | finds the **first** match of any CSS selector | single element, or `null` |
+| `document.querySelectorAll(".btn")` | finds **all** matches | a `NodeList` (basically a list of elements) |
 
-Before JavaScript can modify or read an element, it must first locate it in the DOM tree.
-
-#### Selection Methods
-
-1. `document.getElementById("idName")`
-   - **Description:** Finds the single element with the specified ID.
-   - **Returns:** A single `Element` object, or `null` if not found.
-   - **Best for:** Fast, direct selection when an ID is known.
-
-2. `document.querySelector("cssSelector")`
-   - **Description:** Finds the **first** element that matches any CSS selector (e.g., `.class`, `#id`, `tag`).
-   - **Returns:** The first matching `Element`, or `null`.
-
-3. `document.querySelectorAll("cssSelector")`
-   - **Description:** Finds **all** elements matching the given CSS selector.
-   - **Returns:** A `NodeList` (a list-like collection of elements).
-
-```javascript
-// Selecting elements by ID, class, and query selector
+```js
+// select by id, by css selector, and all of a kind
 const mainTitle = document.getElementById("main-title");
 const primaryBtn = document.querySelector(".btn");
 const allNotes = document.querySelectorAll(".note");
 
-// Checking selections in the browser DevTools console
+// check yourself in the browser console (F12)
 console.log(mainTitle);
 ```
 
----
+> [!tip] quick note
+> `getElementById` — "Id", not `getElementByID` or `getElementByid`. it's case sensitive and this typo will get you. also if you keep getting `null`, your selector spelled something wrong.
 
-### Step 2: Changing Content
-
-JavaScript provides two main properties to alter element content:
-
-- `textContent`: Gets or sets plain text. It does **not** parse HTML tags, making it fast and safe from cross-site scripting (XSS) attacks.
-- `innerHTML`: Gets or sets HTML markup inside an element. It parses HTML tags.
-
-> [!WARNING] Security Caution
-> Avoid assigning un-sanitized user inputs directly to `innerHTML` as it opens vulnerability vectors for Cross-Site Scripting (XSS). Use `textContent` for plain text.
+## changing content
+two properties, two different jobs:
+- **`textContent`** — plain text only. it does not parse HTML. fast, and safe.
+- **`innerHTML`** — actually parses HTML tags. use it when you mean to put markup in, not for raw user input.
 
 ```html
-<!-- HTML -->
 <h1 id="title">Old Heading</h1>
 <div id="box"></div>
 ```
 
-```javascript
-// JavaScript
+```js
 const title = document.getElementById("title");
 const box = document.getElementById("box");
 
-// Safely updating text
+// plain text
 title.textContent = "Welcome Back!";
 
-// Updating with HTML markup
+// with markup
 box.innerHTML = "<strong>Loaded</strong> successfully";
 ```
 
----
+> [!warning] security — don't throw user input into `innerHTML`
+> unsanitized user input straight into `innerHTML` = people can inject scripts into your page (XSS). if it's just text, use `textContent`.
 
-### Step 3: Changing Styles & Attributes
-
-You can dynamically update an element's inline styles, attributes, or CSS classes.
-
-| Method / Property | Usage | Description |
+## changing styles & attributes
+| method / property | usage | what it does |
 | :--- | :--- | :--- |
-| `element.style.propertyName` | `box.style.color = "red";` | Sets inline CSS directly (uses camelCase like `backgroundColor`). |
-| `element.setAttribute(name, value)` | `img.setAttribute("src", "a.png");` | Sets or updates any HTML attribute. |
-| `element.classList.add("className")` | `box.classList.add("active");` | Adds a CSS class (preferred way to restyle via stylesheets). |
+| `element.style.propertyName` | `box.style.color = "red";` | inline CSS, camelCase (`backgroundColor`) |
+| `element.setAttribute(name, value)` | `img.setAttribute("src", "a.png");` | sets any HTML attribute |
+| `element.classList.add("className")` | `box.classList.add("active");` | adds a CSS class — the cleanest way to restyle, since the actual look stays in your stylesheet |
 
 ```html
-<!-- HTML -->
 <p id="msg">Status</p>
+```
 
-/* CSS */
+```css
 .active {
   color: green;
   font-weight: bold;
 }
 ```
 
-```javascript
-// JavaScript
+```js
 const msg = document.getElementById("msg");
 
-// Add CSS class and set hover attribute
-msg.classList.add("active");
-msg.setAttribute("title", "Saved successfully");
+msg.classList.add("active");          // restyle through the class
+msg.setAttribute("title", "Saved");   // any attribute
 ```
 
----
-
-### Step 4: Creating & Removing Elements
-
-JavaScript allows you to build new DOM elements from scratch and remove existing ones.
-
-- `document.createElement("tagName")`: Instantiates a new element in memory.
-- `parentElement.appendChild(childElement)`: Appends the element as the last child of a parent.
-- `element.remove()`: Deletes an element directly from the DOM tree.
-
-```html
-<!-- HTML -->
-<ul id="list">
-  <li id="temp">Temporary Item</li>
-</ul>
-```
-
-```javascript
-// JavaScript
-const list = document.getElementById("list");
-
-// 1. Create a new <li> element
+## creating and removing elements
+```js
+// 1. create a new element (in memory for now)
 const newLi = document.createElement("li");
 newLi.textContent = "Fresh Milk";
 
-// 2. Append it to the list container
+// 2. append it to a parent
+const list = document.getElementById("list");
 list.appendChild(newLi);
 
-// 3. Remove an old element
-const tempItem = document.getElementById("temp");
-tempItem.remove();
+// 3. remove something else
+document.getElementById("temp").remove();
 ```
 
----
+- `document.createElement("tagName")` — makes a new element
+- `parent.appendChild(child)` — puts it in as the last child
+- `element.remove()` — deletes it from the tree
 
-## 4. DOM Events & Event Handling
+# Events
+an **event** is a signal the browser fires when something happens: a click, a keypress, typing in a field, scroll, the page finishing load, all of it.
 
-### What Is an Event?
-An **event** is a signal sent by the browser indicating that an action has occurred—such as a user clicking a button, typing in an input field, scrolling the page, or the page finishing loading.
+the lifecycle is short and sweet:
+1. user does something (clicks, types, scrolls)
+2. browser fires an event (`"click"`)
+3. `addEventListener()` catches it
+4. your handler function runs
 
-### The Event-Driven Lifecycle
-1. **User Action:** User clicks, types, or scrolls.
-2. **Event Fires:** The browser emits an event signal (e.g., `"click"`).
-3. **Listener Catches It:** `addEventListener()` intercepts the event.
-4. **Handler Runs:** The associated callback function executes.
-
----
-
-### Handling Events with `addEventListener()`
-
-Modern JavaScript uses `addEventListener()` to bind event handlers to DOM elements.
-
-```javascript
-// Syntax
-element.addEventListener("eventType", function(event) {
-    // Handler code executed when event triggers
+## `addEventListener()`
+```js
+element.addEventListener("eventType", function (event) {
+    // runs when the event fires
 });
 ```
 
-#### Why `addEventListener()` instead of inline `onclick` attributes?
-- Separates JavaScript behavior from HTML markup.
-- Allows attaching multiple event listeners to the same element without overwriting existing ones.
+why this instead of inline `onclick` attributes?
+- keeps JavaScript out of the HTML (behavior separate from markup)
+- you can stack **multiple** listeners on one element without one overwriting the other
 
----
-
-### Interactive Example: Counter Button
-
+## example: like counter
 ```html
-<!-- HTML -->
 <button id="likeBtn">♡ Like</button>
 <p id="count">0 likes</p>
 ```
 
-```javascript
-// JavaScript
+```js
 const btn = document.getElementById("likeBtn");
 const count = document.getElementById("count");
 
@@ -285,120 +178,75 @@ btn.addEventListener("click", () => {
 });
 ```
 
----
-
-### Common DOM Event Types
-
-| Event Type | Triggers When... | Common Target Elements |
+## the common events
+| event | fires when... | usually on |
 | :--- | :--- | :--- |
-| `click` | User clicks/taps an element | `button`, `a`, `div` |
-| `dblclick` | User double-clicks rapidly | `img`, `canvas` |
-| `mouseover` / `mouseout` | Pointer enters or leaves element bounds | Cards, menu items, `div` |
-| `keydown` / `keyup` | Keyboard key is pressed down or released | `input`, `textarea`, `document` |
-| `input` | Value of input change on every keystroke | `input`, `textarea` |
-| `change` | Form input value is committed / loses focus | `select`, `checkbox`, `radio` |
-| `submit` | Form is submitted | `form` |
-| `load` | Page or resource finishes loading | `window`, `img` |
-| `scroll` | User scrolls element or page | `window`, `div` |
+| `click` | user clicks/taps | `button`, `a`, anything really |
+| `dblclick` | double click | images, canvases |
+| `mouseover` / `mouseout` | pointer enters / leaves | cards, menu items |
+| `keydown` / `keyup` | key pressed / released | `input`, `document` |
+| `input` | every keystroke changes the value | `input`, `textarea` |
+| `change` | value committed / loses focus | `select`, `checkbox`, `radio` |
+| `submit` | form submitted | `form` |
+| `load` | page/resource finished loading | `window`, `img` |
+| `scroll` | user scrolls | `window`, `div` |
 
-> [!TIP]
-> Always pass event names as plain lower-case strings without the `"on"` prefix (e.g., `"click"`, `"submit"`, `"input"`).
+> [!tip] callout tip
+> event names are plain lowercase strings, **no `"on"` prefix**. it's `"click"`, `"submit"`, `"input"` — not `"onClick"`.
 
----
-
-### The Event Object (`e`) & `preventDefault()`
-
-When an event handler runs, the browser automatically passes an **Event object** (`e` or `event`) containing details about what happened.
-
-#### Key Event Properties & Methods
-- `e.target`: References the exact element where the event originated.
-- `e.preventDefault()`: Cancels default browser behavior (such as page reloads on form submission or link navigation).
+## the event object (`e`)
+when a handler runs, the browser hands it an **event object** — everyone just names it `e`. the two you'll actually use:
+- **`e.target`** — the exact element where the event happened
+- **`e.preventDefault()`** — cancel the browser's default behavior (the big one: stopping forms from reloading the page)
 
 ```html
-<!-- HTML -->
 <form id="signup">
   <input type="email" id="email" placeholder="Enter email" />
   <button type="submit">Sign Up</button>
 </form>
 ```
 
-```javascript
-// JavaScript
+```js
 const form = document.getElementById("signup");
 
 form.addEventListener("submit", (e) => {
-    // Prevent the default browser page reload
-    e.preventDefault();
-    
-    console.log("Form target element:", e.target);
+    e.preventDefault();              // no page reload
+    console.log(e.target);           // the form itself
     alert("Thanks for signing up!");
 });
 ```
 
----
-
-## 5. Mini Project: Interactive To-Do List
-
-Combining element selection, event handling, DOM element creation, and resetting values:
+# Mini project: to-do list
+all of the above in one place — select, listen, validate, create, insert, reset.
 
 ```html
-<!-- HTML -->
 <input id="taskInput" placeholder="Enter new task..." />
 <button id="addBtn">Add Task</button>
 <ul id="taskList"></ul>
 ```
 
-```javascript
-// JavaScript
+```js
 const input = document.getElementById("taskInput");
 const addBtn = document.getElementById("addBtn");
 const list = document.getElementById("taskList");
 
 addBtn.addEventListener("click", () => {
-    // 1. Validate input (ignore empty or whitespace-only text)
-    if (input.value.trim() === "") return;
+    if (input.value.trim() === "") return;   // reject empty input
 
-    // 2. Create new <li> element
-    const li = document.createElement("li");
-    li.textContent = input.value;
-
-    // 3. Append to list
-    list.appendChild(li);
-
-    // 4. Reset input field
-    input.value = "";
+    const li = document.createElement("li"); // 1. build the item
+    li.textContent = input.value;            // 2. give it text
+    list.appendChild(li);                    // 3. slot it at the end
+    input.value = "";                        // 4. clear the field
 });
 ```
 
-### Execution Flow:
-1. **Select:** Input, button, and list references are saved upfront.
-2. **Listen:** Click event attached to the button.
-3. **Validate:** `trim()` checks for empty inputs.
-4. **Create:** New `<li>` node built with text from input.
-5. **Insert:** `appendChild()` puts the new item at the end of `<ul>`.
-6. **Reset:** Input field cleared for next entry.
+the flow: select everything first, listen to the button, `trim()` guards empty input, `createElement` builds the `<li>`, `appendChild` inserts it, then the field is cleared and ready for the next one.
 
----
+# Building a modal
+the classic modal pattern. modals are almost never built from scratch at click-time — they're **pre-built** in HTML/CSS, hidden by default, and JavaScript just **toggles a class** to show them.
 
-## 6. Implementation Workflow in Web Projects
-
-1. **Structure HTML:** Create markup and assign clean, descriptive `id` or `class` attributes to interactive elements.
-2. **Link Script:** Embed script with `<script src="app.js" defer></script>` before `</body>` or in `<head>` with `defer`.
-3. **Select Elements:** At top of JavaScript file, query DOM elements.
-4. **Attach Event Listeners:** Register `addEventListener()` for user actions.
-5. **Manipulate DOM:** Inside event callbacks, update text, styles, or add/remove nodes.
-6. **Test & Debug:** Use Browser Developer Tools (F12) Console and Elements panels.
-
----
-
-## 7. Building UI Components: Modal Pattern
-
-A **modal** is a dialog box sitting on top of page content over a backdrop. Instead of creating complex elements on the fly, modals are usually pre-built in HTML/CSS and toggled using CSS classes via JavaScript.
-
-### Modal HTML & CSS Setup
-
+## the HTML + CSS
 ```html
-<!-- Modal HTML Structure -->
 <button id="openBtn">Open Modal</button>
 
 <div class="modal-overlay" id="myModal">
@@ -411,46 +259,46 @@ A **modal** is a dialog box sitting on top of page content over a backdrop. Inst
 ```
 
 ```css
-/* Modal CSS Styles */
 .modal-overlay {
-  display: none; /* Hidden by default */
+  display: none;              /* hidden by default */
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.5);
 }
 
 .modal-overlay.open {
-  display: flex; /* Displayed when 'open' class is added */
+  display: flex;              /* shows up when .open is added */
   align-items: center;
   justify-content: center;
 }
 ```
 
-### Complete Modal JavaScript Implementation
-
-```javascript
+## the JavaScript
+```js
 const openBtn = document.getElementById("openBtn");
 const modal = document.getElementById("myModal");
 const closeBtn = modal.querySelector(".close");
 
-// 1. Open modal on button click
+// 1. open on the button
 openBtn.addEventListener("click", () => {
     modal.classList.add("open");
 });
 
-// 2. Close modal on close button click
+// 2. close on the × button
 closeBtn.addEventListener("click", () => {
     modal.classList.remove("open");
 });
 
-// 3. Close modal when clicking the backdrop overlay
+// 3. close when clicking the dark backdrop (make sure the click
+//    is on the overlay itself, NOT inside the modal content)
 modal.addEventListener("click", (e) => {
     if (e.target === modal) {
         modal.classList.remove("open");
     }
 });
 
-// 4. Close modal on Escape key press
+// 4. close on Escape — listening on `document` so it works
+//    no matter where keyboard focus currently is
 document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
         modal.classList.remove("open");
@@ -458,22 +306,26 @@ document.addEventListener("keydown", (e) => {
 });
 ```
 
-### Code Explanation:
-- `modal.querySelector(".close")`: Scopes the search specifically inside the modal container.
-- `e.target === modal`: Ensures the modal closes only when clicking the backdrop overlay directly, not when clicking inside the content box.
-- `e.key === "Escape"`: Listens on the global `document` so pressing Escape works regardless of where keyboard focus currently sits.
-- `classList.add()` / `classList.remove()`: Explicitly manages visual state cleanly.
+why each line works:
+- `modal.querySelector(".close")` — searches **inside the modal only**, not the whole page
+- `e.target === modal` — the backdrop click check. clicks inside the content box don't match, so the modal only closes when you click the outside area
+- `e.key === "Escape"` on `document` — global keyboard escape hatch
+- `classList.add()` / `classList.remove()` — the state lives in your CSS, JavaScript just flips it
 
----
+# Implementation steps in a real project
+1. **structure the HTML** — clean, descriptive `id`/`class` on everything interactive
+2. **link the script** — `<script src="app.js" defer></script>` so the DOM exists before the script runs (works both in `<head>` with `defer` or before `</body>`)
+3. **select your elements** — top of the JS file, all your queries together
+4. **attach the listeners** — one per user action
+5. **manipulate the DOM** — inside the callbacks: text, styles, classes, new elements
+6. **test it** — devtools (F12): Console for errors, Elements panel to watch the DOM change live
 
-## 8. Summary & Key Takeaways
-
-- **Client-Side Scripting** runs in the browser, providing instant interactive feedback without server requests.
-- The **DOM** is a dynamic live object tree representing your page HTML.
-- **Select** elements with `getElementById()` or `querySelector()`.
-- **Modify** content using `textContent` (plain text) or `innerHTML` (HTML markup).
-- **Style** elements with `style`, `setAttribute()`, or `classList`.
-- **Create/Delete** elements using `createElement()`, `appendChild()`, and `remove()`.
-- **Handle Events** with `element.addEventListener("type", handler)` (avoid inline HTML handlers).
-- Build interactive UI components (modals, dropdowns, tooltips) by toggling CSS state classes in response to user actions.
-
+# Summary
+- client-side = runs in the browser, instant feedback, no server round trips
+- the **DOM** is the live object tree of your page
+- **select** with `getElementById()` / `querySelector()`
+- **change content** with `textContent` (plain) or `innerHTML` (markup, trusted input only)
+- **restyle** with `style`, `setAttribute()`, or best: toggle classes with `classList`
+- **create / delete** with `createElement()`, `appendChild()`, `remove()`
+- **react** with `element.addEventListener("click", handler)` — lowercase event names, never inline `onclick`
+- modals and interactive UI = prebuilt HTML/CSS + class toggling

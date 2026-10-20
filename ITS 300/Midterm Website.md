@@ -22,13 +22,13 @@ some class values are redundant so with the help of AI, it made the class values
 used for all buttons. 
 values can be overridden with a unique ID
 
-# Admin panel with symphony
+# Admin panel with Symfony
 what we need in finals
 - `php -v`
-- symphony cli
-	- symphony.com
+- symfony cli
+	- symfony.com
 	- download
 	- pick os
 		- if windows
 		- install scoop on powershell
-	- `symphony -v`
+	- `symfony -v`

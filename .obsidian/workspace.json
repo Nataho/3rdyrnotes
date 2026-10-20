@@ -27,7 +27,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ITS 300/Midterm Website.md",
+                "file": "ITS 300/subnotes/Symfony.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -42,7 +42,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Midterm Website"
+              "title": "Symfony"
             }
           }
         ],
@@ -217,7 +217,11 @@
   },
   "active": "e7f1fb46c093084d",
   "lastOpenFiles": [
+    "ITS 300/~$ITS 300 Summary.pptx",
+    "ITS 300/ITS 300 Summary.pptx",
     "ITS 300/subnotes/Docker.md",
+    "ITS 300/ITS 300 - Web Development 1.md",
+    "ITS 300/Midterm Website.md",
     "ITS 301/ITS 301 - Seminars & Field Trips.md",
     "3rd year/1st semester.md",
     "ITS 303/Types of Animation.md",
@@ -240,9 +244,6 @@
     "ITS 300/subnotes/CSS Background Properties.md",
     "ITS 300/subnotes/CSS Transitions.md",
     "ITS 300/subnotes/CSS Transforms.md",
-    "ITS 300/subnotes/Pseudo Classes.md",
-    "SERV 100/SERV 100 - Service Culture.md",
-    "SERV 100/subnotes/game dev focus.md",
     "ITS 304/projects"
   ]
 }

@@ -47,7 +47,7 @@ the main difference between the two is how they reference files
 - you use it to reference pages
 ### `ROOT_DIR`
 - translates to `your/path/to/php/server/` or in LAMP it's `var/www/html/`
-- 
+- you use it to reference files (like the `components/header.php` example below)
 
 ## How to use?
 ``` html
@@ -77,7 +77,7 @@ referencing webpages using `BASE_URL`
 ```php
 <?php require ROOT_DIR . 'components/header.php' ?>
 ```
-referencing files using `ROOT_DIR`. also discussed further in [[Personal Techniques#OOP on html|OOP on html]] and look at it's implementation
+referencing files using `ROOT_DIR`. also discussed further in [[Personal Techniques#OOP on html|OOP on html]] and look at its implementation
 
 
 
@@ -90,7 +90,7 @@ let's call those objects as **Components**
 
 
 > [!NOTE] Prerequisite
-> under is assuming you learned about [[Personal Techniques#Source Config Files|Source Config Files]], if you havent' please look at it first before reading any further
+> under is assuming you learned about [[Personal Techniques#Source Config Files|Source Config Files]], if you haven't please look at it first before reading any further
 
 
 ## how it looks like
