@@ -70,7 +70,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -228,6 +228,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "docs-export:Export documentation site": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -239,18 +240,8 @@
       "webpage-html-export:Export as HTML": false
     }
   },
-  "active": "e7f1fb46c093084d",
+  "active": "d063279383d16f10",
   "lastOpenFiles": [
-    "ITS 300/subnotes/Docker.md",
-    "ITS 300/subnotes/types of selectors.md",
-    "5 qualities of a good design.md",
-    "ITS 304/ITS 304 - System Analysis & Design.md",
-    "ITS 300/Midterm Website.md",
-    "ITS 300/subnotes/Symfony.md",
-    "test/Arch Install.md",
-    "ITS 300/ITS 300 Summary.pptx",
-    "ITS 300/~$ITS 300 Summary.pptx",
-    "ITS 300/ITS 300 - Web Development 1.md",
     "ITS 301/ITS 301 - Seminars & Field Trips.md",
     "3rd year/1st semester.md",
     "ITS 303/Types of Animation.md",
@@ -268,7 +259,17 @@
     "atatchments/Teachers/Chester Cofino.md",
     "ITS 303/project/Flipbook Assignment.md",
     "BPO/homework/introduce yourself assignment.md",
-    "ITS 300/subnotes/Measurement Units.md",
+    "SERV 100/SERV 100 - Service Culture.md",
+    "SERV 100/subnotes/game dev focus.md",
+    "SERV 100/System Thinking Basics.md",
+    "ITS 304/homework/The 7 Phases of the Software Development Life Cycle (SDLC).md",
+    "GE 11/The Identity Prism.md",
+    "atatchments/daily/July 29, 2026 _ Wednesday.md",
+    "GE 11/Gender and Sexuality Across Time.md",
+    "GE 11/Reproductive_Hardware_and_Software.md",
+    "index.md",
+    "ITS 300/ITS 300 Summary.pptx",
+    "ITS 300/~$ITS 300 Summary.pptx",
     "ITS 304/projects"
   ]
 }

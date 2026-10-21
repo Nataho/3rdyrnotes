@@ -1,0 +1,14 @@
+{
+  "siteName": "Docs",
+  "lastExportPath": "C:\\xampp\\htdocs\\ai-notes",
+  "rememberPath": true,
+  "include": [],
+  "exclude": [
+    ".trash"
+  ],
+  "contentWidth": 760,
+  "showBreadcrumbs": true,
+  "showLastUpdated": true,
+  "showPagination": true,
+  "enableMermaid": true
+}
