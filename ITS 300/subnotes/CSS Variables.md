@@ -1,3 +1,27 @@
+---
+tags:
+  - notes
+---
+
+css variables store a value once and reuse it everywhere. define them with `--name`, drop them in with `var(--name)`. change the variable once, and every place using it updates with it.
+
+- global variables are declared inside `:root` (the document's root element)
+- local ones can be declared inside any other selector
+- the name must begin with `--`
+
+```css
+:root {
+  --primary-color: red;
+}
+
+h1 {
+  color: var(--primary-color);
+}
+```
+
+# the real thing, from my site
+below is the actual palette and header styling from my website — every color lives in a variable up top, so a re-theme means changing four lines, not forty.
+
 ```css
 @import url('https://cdn.jsdelivr.net/npm/@fontsource/adwaita-mono@5.0.0/index.css');
 
@@ -77,3 +101,14 @@ h1 {
     mask-image: linear-gradient(to right, transparent 0%, black 40%);
 }
 ```
+
+what to look at:
+- the `--palette-*` names keep the four shades sorted from darker → lighter, so you don't have to remember the hexes
+- `--transparent-darker` is a hex with an alpha channel — `3F` = 25% transparent black
+- `mask-image` fades the right edge of the header image out with a gradient, so it blends into the background instead of ending as a hard box
+- `.heading-nav:hover` — the hover part is a [[Pseudo classes|pseudo class]]; the transition makes the swap smooth
+
+# See also
+- [[CSS3 and CSS Frameworks]] — the master css note this belongs to
+- [[Pseudo classes]] — the `:hover` used above
+- [[Measurement Units]] — the `2.5em`, `250px` and friends used above
