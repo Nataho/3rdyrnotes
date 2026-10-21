@@ -1,6 +1,7 @@
 [
   "gdscript-syntax-highlighting",
   "notebook-navigator",
+  "webpage-html-export",
   "dataview",
-  "webpage-html-export"
+  "docs-export"
 ]

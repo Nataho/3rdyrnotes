@@ -1,0 +1,9 @@
+{
+  "id": "docs-export",
+  "name": "Docs Site Export",
+  "version": "1.0.0",
+  "minAppVersion": "1.4.0",
+  "description": "Export your whole vault as a professional documentation website (Docusaurus-style, always dark), with file tree, search, outline and graph view.",
+  "author": "Nataho",
+  "isDesktopOnly": true
+}
