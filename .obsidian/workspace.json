@@ -27,7 +27,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ITS 300/subnotes/Symfony.md",
+                "file": "5 qualities of a good design.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -42,7 +42,31 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Symfony"
+              "title": "5 qualities of a good design"
+            }
+          },
+          {
+            "id": "d063279383d16f10",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "ITS 300/subnotes/Docker.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "Docker"
             }
           }
         ],
@@ -217,11 +241,16 @@
   },
   "active": "e7f1fb46c093084d",
   "lastOpenFiles": [
-    "ITS 300/~$ITS 300 Summary.pptx",
-    "ITS 300/ITS 300 Summary.pptx",
     "ITS 300/subnotes/Docker.md",
-    "ITS 300/ITS 300 - Web Development 1.md",
+    "ITS 300/subnotes/types of selectors.md",
+    "5 qualities of a good design.md",
+    "ITS 304/ITS 304 - System Analysis & Design.md",
     "ITS 300/Midterm Website.md",
+    "ITS 300/subnotes/Symfony.md",
+    "test/Arch Install.md",
+    "ITS 300/ITS 300 Summary.pptx",
+    "ITS 300/~$ITS 300 Summary.pptx",
+    "ITS 300/ITS 300 - Web Development 1.md",
     "ITS 301/ITS 301 - Seminars & Field Trips.md",
     "3rd year/1st semester.md",
     "ITS 303/Types of Animation.md",
@@ -240,10 +269,6 @@
     "ITS 303/project/Flipbook Assignment.md",
     "BPO/homework/introduce yourself assignment.md",
     "ITS 300/subnotes/Measurement Units.md",
-    "ITS 300/subnotes/CSS Box Model.md",
-    "ITS 300/subnotes/CSS Background Properties.md",
-    "ITS 300/subnotes/CSS Transitions.md",
-    "ITS 300/subnotes/CSS Transforms.md",
     "ITS 304/projects"
   ]
 }

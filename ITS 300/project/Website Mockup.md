@@ -55,7 +55,7 @@ Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz
 
 ## 13th Page (Body Copy Typeface)
 **Inter**
-This typeface should be used for headings, and can be used in all digital and print collaterals. As of the completion of these guidelines, the typeface is available through Google Fonts.
+This typeface should be used for body copy, and can be used in all digital and print collaterals. As of the completion of these guidelines, the typeface is available through Google Fonts.
 
 *Font Name*
 Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz
@@ -70,4 +70,7 @@ https://truebotanicals.com/
 
 ## assignment link
 https://classroom.google.com/u/3/c/ODcwNDM3NTY5NjU3/a/ODU1NjE1MzA5MjQ1/details
+
+# See also
+- [[Midterm Website]] — where this brand guide gets turned into a real site
 

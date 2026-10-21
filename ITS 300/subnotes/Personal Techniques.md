@@ -82,7 +82,7 @@ referencing files using `ROOT_DIR`. also discussed further in [[Personal Techniq
 
 
 # OOP on html
-one nice thing about php is that you can spawn an instance of an object in side your website.
+one nice thing about php is that you can spawn an instance of an object inside your website.
 
 this is very useful when dealing with html that is used on multiple pages and just copy pasting it.
 
@@ -126,7 +126,7 @@ require_once '../config.php';
     
 </head>
 <body>
-    //<!-- an "AHA!" moment here. always loved oop -->
+    <!-- an "AHA!" moment here. always loved oop -->
     <?php require ROOT_DIR . 'components/header.php' ?>
 </body>
 </html>

@@ -1,3 +1,8 @@
+---
+tags:
+  - notes
+---
+
 # CSS3 @media Queries Guide
 
 Media queries (`@media`) in CSS3 allow you to apply specific styles based on a device's characteristics—such as screen width, height, orientation, or user preferences like dark mode. 
@@ -132,3 +137,10 @@ While exact breakpoints depend on your design, these industry standards are a gr
     body { color: #000; }
   }
   ```
+
+---
+
+# See also
+- [[CSS3 and CSS Frameworks]] — the master css note this sits inside
+- [[Measurement Units]] — px, em, rem — what the breakpoints are made of
+- [[CSS Variables]] — keeping palettes consistent across breakpoints

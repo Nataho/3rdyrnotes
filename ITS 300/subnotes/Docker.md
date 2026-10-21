@@ -5,34 +5,37 @@ tags:
   - notes
 ---
 
-# What is "Docker"?
+# What is Docker?
 docker is an app that makes migrating systems, servers, databases, etc. a lot easier.
-the way docker does it is with [[#Images]] and [[#Containers]].
+the way docker does it is with **images** and **containers**.
 just let the next machine **install docker only**, and it's ready to migrate!
 
 # What if we don't use docker?
-if you don't use docker when migrating. the system might break
-it could be because of
+if you don't use docker when migrating, the system might break.
+it could be because of:
 - outdated / unstable software,
-- no prerequisite packages.
-- inconsistent configuration.
+- no prerequisite packages,
+- inconsistent configuration,
 - and more.
 
 # Images
-[[#Images]] are one of the key features of [[Docker]]. [[#Images]] are packages that are ready to be copied and deployed to your [[#Containers|Container]] so it can be used immediately.
+images are one of the key features of docker. images are packages that are ready to be copied and deployed to your container so it can be used immediately.
+
 > [!note] Analogy
-> think of an [[#Images|Image]] as a photo of a document. you can still read the document right? but you can't edit it, just scan it.
-> once the [[#Images|Image]] has been scanned. it can then be edited again and be used again
+> think of an image as a photo of a document. you can still read the document right? but you can't edit it, just scan it.
+> once the image has been scanned, it can then be edited again and be used again.
+>
+> in plainer terms: the image is the frozen package — you don't touch it yourself. you **run** it, and what's running it is the container. one image can spawn as many copies of a container as you want.
 
 # Containers
-[[#Containers]] are also one of the key features of [[Docker]]. [[#Containers]] are basically tiny virtual machines with their own apps and services running. and those services would be your running [[#Images]].
+containers are also one of the key features of docker. containers are basically tiny virtual machines with their own apps and services running — and those services would be your running images.
 
 # Setting up docker
 ## Images needed
 - mysql
 - php
 
-## Create Network
+## Create network
 ```bash
 docker network create [name of network]
 ```
@@ -40,7 +43,6 @@ docker network create [name of network]
 > ```bash
 > docker network create webdev-network
 > ```
-
 
 ## most basic command to create a container
 > [!danger] DISCLAIMER
@@ -65,10 +67,8 @@ netstat -ano | findstr [portnumber]
 >   TCP    [::]:3306              [::]:0                 LISTENING       18196
 > ```
 
-
-# Creating Containers
-in this part is where [[#Containers]] are created
-the commands at the very bottom of this section are the commands you can use for our class and just rename them to what you want to make
+# Creating containers
+this is where containers actually get created. the templates here take the full `docker run` from earlier and add the network, volume, environment variables, and port mapping you'll actually need in class.
 
 ## MySQL container
 ```bash
@@ -99,10 +99,10 @@ docker run -d --name EB_mysql --network EB_Network -v EB-db-data:/var/lib/mysql 
 docker run -d --name EB_phpmyadmin --network EB_Network -e PMA_HOST=EB_mysql -p 6969:80 phpmyadmin
 ```
 
-****
+---
 
-# Extra Docker Commands
-From the notes of Sir Ariel Bensing
+# Extra docker commands
+from the notes of Sir Ariel Bensing.
 
 ## Build an image from a dockerfile
 ```bash
@@ -161,12 +161,12 @@ docker stop [container name]
 ```
 <span style="opacity:.5">took me a while to realize `stop` is for containers, not networks lmao. networks don't stop, they just exist until you `rm` them.</span>
 
-*****
+---
 
 # Extra
 on symfony to connect to your database you have to open your `.env` file on the root folder.
 
-## Making Variables
+## Making variables
 ```env
 MYSQL_USER=
 MYSQL_PASSWORD=
@@ -175,7 +175,7 @@ MYSQL_PORT=
 MYSQL_DATABASE=
 ```
 > [!tip] Example
-> My database has these variables to connect to. it doesn't mean you can copy this and make it work on yours. you have to provide your own values
+> my database has these variables to connect to. it doesn't mean you can copy this and make it work on yours — you have to provide your own values.
 > ```env
 > MYSQL_USER=root
 > MYSQL_PASSWORD=
@@ -185,36 +185,37 @@ MYSQL_DATABASE=
 > ```
 
 ## Connecting to database
-on [[#Making Variables]] we'll use the created variables there to connect to the database.
+using the variables from [[#Making variables]] to connect to the database:
 ```env
 DATABASE_URL="mysql://${MYSQL_USER}:${MYSQL_PASSWORD}@${MYSQL_IP}:${MYSQL_PORT}/${MYSQL_DATABASE}?serverVersion=10.11.2-MariaDB&charset=utf8mb4"
 ```
-you can copy this if you want
+you can copy this one if you want.
 
-Drop database
+drop database:
 ```bash
 symfony console doctrine:database:drop --force
 ```
 
-Create Database
+create database:
 ```bash
 symfony console doctrine:database:create
 ```
 
-# using `compose.yaml`
+# Using `compose.yaml`
 > [!warning] spelling
 > the file is named `compose.yaml` — **compose**, not **composer**. composer is the PHP package thing, easy to mix up. both files exist in a symfony project and they do totally different jobs.
 
-using `compose.yaml` is one of the great things of [[Symfony]] and [[Docker]].
+using `compose.yaml` is one of the great things of [[Symfony]] and docker.
 it allows you to create containers when needed and delete them when not used or powered off.
-it also allows you to migrate your project easily because it is stored in the project itself and not inside a separate database. it's all in one file.
+it also allows you to migrate your project easily, because the whole setup is stored in the project itself and not inside a separate database. it's all in one file.
 
 > [!tip] IMPORTANT
-> change your `compose.override.yaml` to `compose.override-disabled.yaml` or basically delete it so that it doesn't interfere with your development
+> change your `compose.override.yaml` to `compose.override-disabled.yaml` or basically delete it so that it doesn't interfere with your development.
 
 ## Editing `compose.yaml`
-everything you see inside this is what the previous discussion had.
-what this basically does is create 2 containers named `webdev-mysql` and `webdev-phpmyadmin` and their images are in the name.
+everything inside this file is the same thing the manual `docker run` commands did earlier.
+what this basically does is create 2 containers named `webdev-mysql` and `webdev-phpmyadmin`, and their images are in the name.
+
 ```yaml
 services:
   webdev-mysql:
@@ -249,11 +250,11 @@ volumes:
 networks:
   webdev-network:
 ```
-this file is also connected to the `.env` file. that's why you see these `${MYSQL_DATABASE}` things
+this file is also connected to the `.env` file — that's why you see those `${MYSQL_DATABASE}` things.
 
 ## Essential commands for compose to work
 > [!danger] DISCLAIMER
-> The following commands **WILL NOT WORK** if the `terminal` you are using is **NOT** inside the root folder of your project
+> the following commands **WILL NOT WORK** if the `terminal` you are using is **NOT** inside the root folder of your project.
 
 ### start the containers
 ```bash
@@ -270,8 +271,8 @@ docker compose stop
 docker compose down -v
 ```
 
-# how to create an entity
-entities are tables inside the database. (this part is still a work in progress, to be filled in properly after more discussions)
+# How to create an entity
+entities are tables inside the database. (this part is still a work in progress, to be filled in properly after more discussions.)
 
 ```bash
 symfony console make:entity Category
@@ -289,8 +290,9 @@ symfony console doctrine:migrations:migrate
 symfony console make:crud Category
 ```
 
-## how to connect 2 tables
+## How to connect 2 tables
 when making the second entity (`Product`), the prompt asks what it is related to — these are the answers to hit:
+
 ```bash
 symfony console make:entity Product
 
@@ -310,3 +312,8 @@ symfony console doctrine:migrations:migrate
 
 symfony console make:crud Product
 ```
+
+# See also
+- [[php and database]] — the mysql side these containers run
+- [[Symfony]] — the framework that talks to the database this sets up
+- [[Midterm Website]] — where all of this gets used for real
