@@ -4,6 +4,36 @@
     "type": "split",
     "children": [
       {
+        "id": "4d2b82c537a26a02",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f00bd202bc14a041",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "ITS 302/Cisco Basic Setup.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "Cisco Basic Setup"
+            }
+          }
+        ]
+      },
+      {
         "id": "60426cb39518fbd4",
         "type": "tabs",
         "children": [
@@ -49,9 +79,21 @@
             "id": "d063279383d16f10",
             "type": "leaf",
             "state": {
+              "type": "image",
+              "state": {
+                "file": "atatchments/assets/Pasted image 20261022081542.png"
+              },
+              "icon": "lucide-image",
+              "title": "Pasted image 20261022081542"
+            }
+          },
+          {
+            "id": "b1f0a2ab506f7feb",
+            "type": "leaf",
+            "state": {
               "type": "markdown",
               "state": {
-                "file": "ITS 300/subnotes/Docker.md",
+                "file": "ITS 302/Cisco Intermediate Setup.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -66,11 +108,11 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Docker"
+              "title": "Cisco Intermediate Setup"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -126,6 +168,16 @@
               },
               "icon": "lucide-bookmark",
               "title": "Bookmarks"
+            }
+          },
+          {
+            "id": "219acfca13b68b7b",
+            "type": "leaf",
+            "state": {
+              "type": "notebook-navigator",
+              "state": {},
+              "icon": "notebook-navigator",
+              "title": "Notebook Navigator"
             }
           }
         ]
@@ -240,8 +292,27 @@
       "webpage-html-export:Export as HTML": false
     }
   },
-  "active": "d063279383d16f10",
+  "active": "f00bd202bc14a041",
   "lastOpenFiles": [
+    "ITS 302/ITS 302 - Data Comm & Networking 2.md",
+    "ITS 302/Cisco Basic Setup.md",
+    "ITS 302/Cisco Commands.md",
+    "ITS 302/Cisco Intermediate Setup.md",
+    "atatchments/assets/Pasted image 20261022215937.png",
+    "atatchments/assets/Pasted image 20261022215738.png",
+    "atatchments/assets/Pasted image 20261022215321.png",
+    "atatchments/assets/Pasted image 20261022214744.png",
+    "atatchments/assets/Pasted image 20261022214628.png",
+    "atatchments/assets/Pasted image 20261022214452.png",
+    "atatchments/assets/Pasted image 20261022184943.png",
+    "ITS 302/DATACOM setups.md",
+    "atatchments/assets/Pasted image 20261022081526.png",
+    "ITS 300/subnotes/Symfony.md",
+    "ITS 300/subnotes/Docker.md",
+    "ITS 300/ITS 300 - Web Development 1.md",
+    "ITS 302/Cisco Packet Tracer.md",
+    "atatchments/assets/Pasted image 20261022090540.png",
+    "atatchments/assets/Pasted image 20261022081525.png",
     "ITS 301/ITS 301 - Seminars & Field Trips.md",
     "3rd year/1st semester.md",
     "ITS 303/Types of Animation.md",
@@ -258,16 +329,6 @@
     "atatchments/Teachers/Jasper Bardo.md",
     "atatchments/Teachers/Chester Cofino.md",
     "ITS 303/project/Flipbook Assignment.md",
-    "BPO/homework/introduce yourself assignment.md",
-    "SERV 100/SERV 100 - Service Culture.md",
-    "SERV 100/subnotes/game dev focus.md",
-    "SERV 100/System Thinking Basics.md",
-    "ITS 304/homework/The 7 Phases of the Software Development Life Cycle (SDLC).md",
-    "GE 11/The Identity Prism.md",
-    "atatchments/daily/July 29, 2026 _ Wednesday.md",
-    "GE 11/Gender and Sexuality Across Time.md",
-    "GE 11/Reproductive_Hardware_and_Software.md",
-    "index.md",
     "ITS 300/ITS 300 Summary.pptx",
     "ITS 300/~$ITS 300 Summary.pptx",
     "ITS 304/projects"

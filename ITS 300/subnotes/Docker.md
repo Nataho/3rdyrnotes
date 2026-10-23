@@ -313,6 +313,8 @@ symfony console doctrine:migrations:migrate
 symfony console make:crud Product
 ```
 
+
+
 # See also
 - [[php and database]] — the mysql side these containers run
 - [[Symfony]] — the framework that talks to the database this sets up
