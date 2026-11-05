@@ -1,0 +1,2 @@
+# Obsidian UI state churns constantly; keeping it in git only causes merge conflicts
+.obsidian/workspace.json
