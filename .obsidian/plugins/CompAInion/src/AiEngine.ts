@@ -150,6 +150,8 @@ const SYSTEM_PROMPT = [
 	'If information is missing, ask the user for clarification through the chat_reply field instead of guessing.',
 	'',
 	'When no vault operation is necessary, return an empty operations array.',
+	'When the user asks you to evaluate, grade, or check answers in a note, deliver the results INTO that note with an update operation (a score callout at the top and one verdict callout after each item); the chat_reply only summarizes the score.',
+	'Never claim in chat_reply that a note was graded, created, updated, or deleted unless you returned a matching operation in this same response.',
 	'',
 	'The response must follow this structure:',
 	'',

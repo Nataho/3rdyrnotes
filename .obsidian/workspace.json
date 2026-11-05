@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ITS 300/subnotes/Symfony and Docker.md",
+                "file": "ITS 300/subnotes/Symfony.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Symfony and Docker"
+              "title": "Symfony"
             }
           },
           {
@@ -37,8 +37,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ITS 302/Cisco Quiz.md",
-                "mode": "source",
+                "file": "BPO/5S of Housekeeping.md",
+                "mode": "preview",
                 "source": false,
                 "backlinks": true,
                 "backlinkOpts": {
@@ -52,7 +52,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Cisco Quiz"
+              "title": "5S of Housekeeping"
             }
           }
         ],
@@ -206,7 +206,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "ITS 302/Cisco Quiz.md",
+                "file": "BPO/5S of Housekeeping.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -216,7 +216,7 @@
             }
           },
           {
-            "id": "16d36272591ccdfc",
+            "id": "b84bcadc14aa62c9",
             "type": "leaf",
             "state": {
               "type": "compainion-view",
@@ -247,13 +247,14 @@
       "compainion:CompAInion - open or close the AI Copilot sidebar": false
     }
   },
-  "active": "16d36272591ccdfc",
+  "active": "b1f0a2ab506f7feb",
   "lastOpenFiles": [
-    "ITS 302/Cisco notes.md",
-    "ITS 302/ITS 302 - Data Comm & Networking 2.md",
-    "CompAInion Rules.md",
     "ITS 302/Cisco Quiz.md",
+    "BPO/5S of Housekeeping.md",
+    "ITS 302/ITS 302 - Data Comm & Networking 2.md",
+    "ITS 302/Cisco notes.md",
     "ITS 300/subnotes/Symfony and Docker.md",
+    "CompAInion Rules.md",
     "ITS 300/subnotes/Symfony and Docker Quiz.md",
     "ITS 300/subnotes/Symfony.md",
     "Symfony and Docker.md",
@@ -280,7 +281,6 @@
     "SYS 100/Case 09 - Amazon Wins Dismissal of Apple's False Advertising Claim.md",
     "SYS 100/Case 08 - U.S. Grads Work as Waiters While Italy's Remain Jobless.md",
     "SYS 100/Case 07 - The End of China's One-Child Policy.md",
-    "ITS 302/Cisco Intermediate Setup.md",
     "atatchments/assets/Pasted image 20261022215937.png",
     "atatchments/assets/Pasted image 20261022215738.png",
     "atatchments/assets/Pasted image 20261022215321.png",
