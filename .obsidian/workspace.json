@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ITS 302/routers.md",
+                "file": "ITS 300/subnotes/Symfony and Docker.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "routers"
+              "title": "Symfony and Docker"
             }
           },
           {
@@ -37,8 +37,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ITS 302/Cisco Basic Setup.md",
-                "mode": "preview",
+                "file": "ITS 302/Cisco Quiz.md",
+                "mode": "source",
                 "source": false,
                 "backlinks": true,
                 "backlinkOpts": {
@@ -52,10 +52,11 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Cisco Basic Setup"
+              "title": "Cisco Quiz"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -205,7 +206,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "WebDev Symfony.md",
+                "file": "ITS 302/Cisco Quiz.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -213,13 +214,23 @@
               "icon": "lucide-list",
               "title": "Outline"
             }
+          },
+          {
+            "id": "16d36272591ccdfc",
+            "type": "leaf",
+            "state": {
+              "type": "compainion-view",
+              "state": {},
+              "icon": "bot",
+              "title": "CompAInion - AI Copilot"
+            }
           }
-        ]
+        ],
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 411.0999755859375
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -232,16 +243,24 @@
       "command-palette:Open command palette": false,
       "bases:Create new base": false,
       "notebook-navigator:Notebook Navigator": false,
-      "webpage-html-export:Export as HTML": false
+      "webpage-html-export:Export as HTML": false,
+      "compainion:CompAInion - open or close the AI Copilot sidebar": false
     }
   },
-  "active": "e0d26b3e3e3e90dc",
+  "active": "16d36272591ccdfc",
   "lastOpenFiles": [
+    "ITS 302/Cisco notes.md",
     "ITS 302/ITS 302 - Data Comm & Networking 2.md",
+    "CompAInion Rules.md",
+    "ITS 302/Cisco Quiz.md",
+    "ITS 300/subnotes/Symfony and Docker.md",
+    "ITS 300/subnotes/Symfony and Docker Quiz.md",
+    "ITS 300/subnotes/Symfony.md",
+    "Symfony and Docker.md",
+    "ITS 302/Cisco Basic Setup.md",
     "ITS 302/routers.md",
     "ITS 302/DHCP Basic Setup.md",
     "ITS 302/DATACOM setups.md",
-    "ITS 302/Cisco Basic Setup.md",
     "atatchments/assets/Pasted image 20261104111447.png",
     "atatchments/assets/Pasted image 20261104111433.png",
     "atatchments/assets/Pasted image 20261104111409.png",
@@ -262,17 +281,10 @@
     "SYS 100/Case 08 - U.S. Grads Work as Waiters While Italy's Remain Jobless.md",
     "SYS 100/Case 07 - The End of China's One-Child Policy.md",
     "ITS 302/Cisco Intermediate Setup.md",
-    "SYS 100/Case 06 - Pakistan Tries New Way of Tackling Corruption.md",
-    "ITS 302/Cisco Commands.md",
     "atatchments/assets/Pasted image 20261022215937.png",
     "atatchments/assets/Pasted image 20261022215738.png",
     "atatchments/assets/Pasted image 20261022215321.png",
     "atatchments/assets/Pasted image 20261022214744.png",
-    "ITS 300/subnotes/Symfony.md",
-    "ITS 300/subnotes/Docker.md",
-    "ITS 300/ITS 300 - Web Development 1.md",
-    "ITS 302/Cisco Packet Tracer.md",
-    "ITS 301/ITS 301 - Seminars & Field Trips.md",
     "ITS 300/ITS 300 Summary.pptx",
     "ITS 300/~$ITS 300 Summary.pptx",
     "ITS 304/projects"

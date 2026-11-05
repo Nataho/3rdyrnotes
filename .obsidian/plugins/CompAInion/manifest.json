@@ -1,0 +1,9 @@
+{
+  "id": "compainion",
+  "name": "CompAInion",
+  "version": "1.3.0",
+  "minAppVersion": "1.4.0",
+  "description": "AI Copilot chat that finds, creates, edits, reads and trash-handles your Markdown notes through the native vault API. Pollinations by default (no key required), optional Gemini.",
+  "author": "Nataho",
+  "isDesktopOnly": false
+}
