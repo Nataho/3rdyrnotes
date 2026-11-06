@@ -1,6 +1,6 @@
 import { App, Notice, PluginSettingTab, Setting } from 'obsidian';
 import type CompAInionPlugin from './main';
-import { providerLabel, resolveProvider } from './AiEngine';
+import { providerLabel, resolveProvider, testOpencodeConnection } from './AiEngine';
 
 export class CompilotSettingsTab extends PluginSettingTab {
 	private readonly plugin: CompAInionPlugin;
@@ -168,11 +168,13 @@ export class CompilotSettingsTab extends PluginSettingTab {
 
 		new Setting(this.containerEl)
 			.setName('opencode password')
-			.setDesc('Only needed when the server runs with OPENCODE_SERVER_PASSWORD (basic auth, username "opencode"). Stored in plain text in the plugin data.json.')
+			.setDesc(
+				'Password for the local opencode server (Basic auth, username "opencode"). When starting "opencode serve" (OpenCode 2.0), the server prints "server password <token>" in the terminal. Paste that password here.',
+			)
 			.addText((text) => {
 				text.inputEl.type = 'password';
 				text.inputEl.classList.add('compainion-opencode-password');
-				text.setPlaceholder('empty when no server password is set')
+				text.setPlaceholder('paste server password here')
 					.setValue(this.plugin.settings.opencodePassword)
 					.onChange(async (value) => {
 						this.plugin.settings.opencodePassword = value;
@@ -187,6 +189,34 @@ export class CompilotSettingsTab extends PluginSettingTab {
 						const input = this.containerEl.querySelector<HTMLInputElement>('.compainion-opencode-password');
 						if (input) {
 							input.type = input.type === 'password' ? 'text' : 'password';
+						}
+					}),
+			);
+
+		new Setting(this.containerEl)
+			.setName('Test opencode connection')
+			.setDesc('Check if the plugin can reach the running opencode server and verify authentication.')
+			.addButton((button) =>
+				button
+					.setButtonText('Test connection')
+					.onClick(async () => {
+						button.setDisabled(true);
+						button.setButtonText('Testing...');
+						try {
+							const result = await testOpencodeConnection(
+								this.plugin.settings.opencodeUrl,
+								this.plugin.settings.opencodePassword,
+							);
+							if (result.ok) {
+								new Notice(`✓ Connected to ${result.version ?? 'OpenCode'} successfully!`);
+							} else {
+								new Notice(`✗ OpenCode connection failed: ${result.error ?? 'Unknown error'}`);
+							}
+						} catch (e) {
+							new Notice(`✗ Error testing connection: ${e instanceof Error ? e.message : 'Unknown error'}`);
+						} finally {
+							button.setDisabled(false);
+							button.setButtonText('Test connection');
 						}
 					}),
 			);

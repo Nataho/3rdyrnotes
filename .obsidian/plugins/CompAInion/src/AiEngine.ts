@@ -646,8 +646,8 @@ export class AiEngine {
 
 	/**
 	 * Route the turn through the local opencode server ("opencode serve").
-	 * One throwaway session per request: create -> prompt (full transcript,
-	 * system override, tools disabled) -> read text parts -> delete session.
+	 * Supports both OpenCode 2.x (/api/session) and OpenCode 1.x (/session).
+	 * One throwaway session per request: create -> prompt -> wait -> read text -> delete session.
 	 */
 	private async requestOpencode(
 		modelId: string,
@@ -661,54 +661,152 @@ export class AiEngine {
 		const model = modelId.trim() || 'glm-5.3-flash-free';
 		const headers = opencodeHeaders(settings.opencodePassword);
 		const transcript = flattenForSession(withJsonReminder(messages));
-		const parts: Record<string, unknown>[] = [{ type: 'text', text: transcript }];
-		for (const attachment of attachments) {
-			parts.push({
-				type: 'file',
-				mime: attachment.mimeType,
-				filename: attachment.filename,
-				url: `data:${attachment.mimeType};base64,${toBase64(attachment.data)}`,
-			});
-		}
 
 		let sessionId = '';
+		let isV2 = true;
+
 		try {
-			const created = await requestUrl({
-				url: `${base}/session`,
-				method: 'POST',
-				contentType: 'application/json',
-				body: JSON.stringify({ title: 'CompAInion' }),
-				headers,
-				throw: false,
-			});
-			const createdRecord = created.status >= 200 && created.status < 300 ? tryParse(created.text) : undefined;
-			if (isRecord(createdRecord) && typeof createdRecord.id === 'string' && createdRecord.id.trim().length > 0) {
-				sessionId = createdRecord.id.trim();
-			} else {
-				throw new AiTurnError(describeOpencodeError(created.status, created.text ?? '', 'session'));
-			}
-			const answered = await requestUrl({
-				url: `${base}/session/${encodeURIComponent(sessionId)}/message`,
+			// 1. Create a throwaway session. Try OpenCode 2.x (/api/session) first.
+			let created = await requestUrl({
+				url: `${base}/api/session`,
 				method: 'POST',
 				contentType: 'application/json',
 				body: JSON.stringify({
-					model: { providerID: providerId, modelID: model },
-					parts: parts,
-					system: systemPrompt,
-					tools: OPENCODE_DISABLED_TOOLS,
+					title: 'CompAInion',
+					model: { providerID: providerId, id: model },
 				}),
 				headers,
 				throw: false,
 			});
-			if (answered.status >= 200 && answered.status < 300) {
-				const payload = answered.json ?? tryParse(answered.text);
-				const text = extractOpencodeText(payload);
+
+			if (created.status === 404 || created.status === 405) {
+				// Fall back to OpenCode 1.x endpoint (/session)
+				isV2 = false;
+				created = await requestUrl({
+					url: `${base}/session`,
+					method: 'POST',
+					contentType: 'application/json',
+					body: JSON.stringify({ title: 'CompAInion' }),
+					headers,
+					throw: false,
+				});
+			}
+
+			const createdRecord = created.status >= 200 && created.status < 300 ? tryParse(created.text) : undefined;
+			if (isRecord(createdRecord)) {
+				if (typeof createdRecord.id === 'string' && createdRecord.id.trim().length > 0) {
+					sessionId = createdRecord.id.trim();
+				} else if (
+					isRecord(createdRecord.data) &&
+					typeof createdRecord.data.id === 'string' &&
+					createdRecord.data.id.trim().length > 0
+				) {
+					sessionId = createdRecord.data.id.trim();
+				}
+			}
+
+			if (!sessionId.length) {
+				throw new AiTurnError(describeOpencodeError(created.status, created.text ?? '', 'session'));
+			}
+
+			if (isV2) {
+				// OpenCode 2.x prompt workflow
+				const promptText = systemPrompt.trim().length > 0
+					? `[System Instructions]\n${systemPrompt}\n\n[Conversation]\n${transcript}`
+					: transcript;
+
+				const promptFiles = attachments.map((att) => ({
+					name: att.filename,
+					uri: `data:${att.mimeType};base64,${toBase64(att.data)}`,
+				}));
+
+				const promptBody: Record<string, unknown> = {
+					text: promptText,
+				};
+				if (promptFiles.length > 0) {
+					promptBody.files = promptFiles;
+				}
+
+				const answered = await requestUrl({
+					url: `${base}/api/session/${encodeURIComponent(sessionId)}/prompt`,
+					method: 'POST',
+					contentType: 'application/json',
+					body: JSON.stringify(promptBody),
+					headers,
+					throw: false,
+				});
+
+				if (answered.status < 200 || answered.status >= 300) {
+					throw new AiTurnError(describeOpencodeError(answered.status, answered.text ?? '', 'prompt'));
+				}
+
+				// Wait for session generation to complete
+				const waitResp = await requestUrl({
+					url: `${base}/api/experimental/session/${encodeURIComponent(sessionId)}/wait`,
+					method: 'POST',
+					headers,
+					throw: false,
+				});
+
+				if (waitResp.status === 404) {
+					await pollForOpencodeV2Completion(base, sessionId, headers);
+				} else if (waitResp.status < 200 || waitResp.status >= 300) {
+					throw new AiTurnError(describeOpencodeError(waitResp.status, waitResp.text ?? '', 'wait'));
+				}
+
+				// Retrieve assistant message from session messages
+				const messagesResp = await requestUrl({
+					url: `${base}/api/session/${encodeURIComponent(sessionId)}/message`,
+					method: 'GET',
+					headers,
+					throw: false,
+				});
+
+				if (messagesResp.status < 200 || messagesResp.status >= 300) {
+					throw new AiTurnError(describeOpencodeError(messagesResp.status, messagesResp.text ?? '', 'messages'));
+				}
+
+				const payload = messagesResp.json ?? tryParse(messagesResp.text);
+				const text = extractOpencodeV2Text(payload);
 				if (!text.trim().length) {
 					throw new AiTurnError('The local opencode server returned no text content for the request.');
 				}
 				return text;
+			} else {
+				// OpenCode 1.x message workflow
+				const parts: Record<string, unknown>[] = [{ type: 'text', text: transcript }];
+				for (const attachment of attachments) {
+					parts.push({
+						type: 'file',
+						mime: attachment.mimeType,
+						filename: attachment.filename,
+						url: `data:${attachment.mimeType};base64,${toBase64(attachment.data)}`,
+					});
+				}
+
+				const answered = await requestUrl({
+					url: `${base}/session/${encodeURIComponent(sessionId)}/message`,
+					method: 'POST',
+					contentType: 'application/json',
+					body: JSON.stringify({
+						model: { providerID: providerId, modelID: model },
+						parts: parts,
+						system: systemPrompt,
+						tools: OPENCODE_DISABLED_TOOLS,
+					}),
+					headers,
+					throw: false,
+				});
+				if (answered.status >= 200 && answered.status < 300) {
+					const payload = answered.json ?? tryParse(answered.text);
+					const text = extractOpencodeText(payload);
+					if (!text.trim().length) {
+						throw new AiTurnError('The local opencode server returned no text content for the request.');
+					}
+					return text;
+				}
+				throw new AiTurnError(describeOpencodeError(answered.status, answered.text ?? '', 'message'));
 			}
-			throw new AiTurnError(describeOpencodeError(answered.status, answered.text ?? '', 'message'));
 		} catch (error) {
 			if (error instanceof AiTurnError) {
 				throw error;
@@ -719,8 +817,11 @@ export class AiEngine {
 		} finally {
 			if (sessionId.length > 0) {
 				try {
+					const deleteUrl = isV2
+						? `${base}/api/session/${encodeURIComponent(sessionId)}`
+						: `${base}/session/${encodeURIComponent(sessionId)}`;
 					await requestUrl({
-						url: `${base}/session/${encodeURIComponent(sessionId)}`,
+						url: deleteUrl,
 						method: 'DELETE',
 						headers,
 						throw: false,
@@ -1247,7 +1348,7 @@ function toBase64(data: ArrayBuffer): string {
 	return btoa(binary);
 }
 
-/** Collect the text parts of an opencode message response, ignoring steps/tools/reasoning. */
+/** Collect the text parts of an opencode 1.x message response, ignoring steps/tools/reasoning. */
 function extractOpencodeText(payload: unknown): string {
 	if (!isRecord(payload) || !Array.isArray(payload.parts)) {
 		return '';
@@ -1261,12 +1362,141 @@ function extractOpencodeText(payload: unknown): string {
 	return texts.join('\n');
 }
 
+/** Collect the text parts of an opencode 2.x message response, ignoring steps/tools/reasoning. */
+function extractOpencodeV2Text(payload: unknown): string {
+	if (!isRecord(payload) || !Array.isArray(payload.data)) {
+		return '';
+	}
+
+	const assistantMsgs = payload.data.filter(
+		(msg): msg is Record<string, unknown> => isRecord(msg) && msg.type === 'assistant',
+	);
+	if (!assistantMsgs.length) {
+		return '';
+	}
+
+	// Pick the latest assistant message by created timestamp (or the first in descending array)
+	const latest = assistantMsgs.reduce((prev, curr) => {
+		const prevTime = isRecord(prev.time) && typeof prev.time.created === 'number' ? prev.time.created : 0;
+		const currTime = isRecord(curr.time) && typeof curr.time.created === 'number' ? curr.time.created : 0;
+		return currTime >= prevTime ? curr : prev;
+	});
+
+	if (Array.isArray(latest.content)) {
+		const texts: string[] = [];
+		for (const part of latest.content) {
+			if (isRecord(part) && part.type === 'text' && typeof part.text === 'string' && part.text.trim().length > 0) {
+				texts.push(part.text);
+			}
+		}
+		if (texts.length > 0) {
+			return texts.join('\n');
+		}
+	}
+
+	if (typeof latest.text === 'string' && latest.text.trim().length > 0) {
+		return latest.text;
+	}
+
+	return '';
+}
+
+/** Fallback polling when the experimental wait endpoint is not present. */
+async function pollForOpencodeV2Completion(base: string, sessionId: string, headers: Record<string, string>): Promise<void> {
+	const maxAttempts = 60;
+	for (let i = 0; i < maxAttempts; i += 1) {
+		await new Promise((resolve) => setTimeout(resolve, 500));
+		const res = await requestUrl({
+			url: `${base}/api/session/${encodeURIComponent(sessionId)}/message`,
+			method: 'GET',
+			headers,
+			throw: false,
+		});
+		if (res.status >= 200 && res.status < 300) {
+			const payload = res.json ?? tryParse(res.text);
+			if (isRecord(payload) && Array.isArray(payload.data)) {
+				const isFinished = payload.data.some(
+					(m) =>
+						isRecord(m) &&
+						(m.type === 'idle' ||
+							(m.type === 'assistant' &&
+								(m.finish !== undefined || (isRecord(m.time) && m.time.completed !== undefined)))),
+				);
+				if (isFinished) {
+					return;
+				}
+			}
+		}
+	}
+}
+
+/** Test connectivity and authentication to the local OpenCode server (supports v2 and v1). */
+export async function testOpencodeConnection(
+	url: string,
+	password: string,
+): Promise<{ ok: boolean; version?: string; error?: string }> {
+	const base = normalizeOpencodeBase(url);
+	const headers = opencodeHeaders(password);
+
+	try {
+		// Try OpenCode 2.x first: GET /api/session
+		const v2Resp = await requestUrl({
+			url: `${base}/api/session?limit=1`,
+			method: 'GET',
+			headers,
+			throw: false,
+		});
+
+		if (v2Resp.status === 200) {
+			return { ok: true, version: 'OpenCode 2.x' };
+		}
+		if (v2Resp.status === 401 || v2Resp.status === 403) {
+			return {
+				ok: false,
+				error: 'Authentication rejected (401/403). Enter the password printed by "opencode serve" in the CompAInion settings.',
+			};
+		}
+
+		// Try OpenCode 1.x: GET /session
+		const v1Resp = await requestUrl({
+			url: `${base}/session`,
+			method: 'GET',
+			headers,
+			throw: false,
+		});
+
+		if (v1Resp.status === 200) {
+			const contentType = v1Resp.headers['content-type'] ?? '';
+			if (contentType.includes('application/json')) {
+				return { ok: true, version: 'OpenCode 1.x' };
+			}
+			return { ok: true, version: 'OpenCode 2.x' };
+		}
+		if (v1Resp.status === 401 || v1Resp.status === 403) {
+			return {
+				ok: false,
+				error: 'Authentication rejected (401/403). Enter the password printed by "opencode serve" in the CompAInion settings.',
+			};
+		}
+
+		return {
+			ok: false,
+			error: `Server responded with status ${v2Resp.status}. Detail: ${v2Resp.text?.slice(0, 100) ?? ''}`,
+		};
+	} catch (err) {
+		return {
+			ok: false,
+			error: `Could not reach ${base}: ${err instanceof Error ? err.message : 'connection refused'}`,
+		};
+	}
+}
+
 function describeOpencodeError(status: number, body: string, stage: string): string {
 	const hint = body.trim().slice(0, 200).replace(/\s+/g, ' ');
 	switch (status) {
 		case 401:
 		case 403:
-			return 'The local opencode server rejected the request (auth). If it runs with OPENCODE_SERVER_PASSWORD, set that password in the CompAInion settings.';
+			return 'The local opencode server rejected the request (auth). Enter the password printed by "opencode serve" (or OPENCODE_SERVER_PASSWORD) in the CompAInion settings.';
 		case 404:
 			return `The local opencode server returned 404 for the ${stage} request (${hint.length ? hint : 'not found'}). Check the server URL and the opencode provider/model ids in the plugin settings.`;
 		default:
